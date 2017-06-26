@@ -74,7 +74,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -86,8 +88,21 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+       $this->validate($request, [
+       'product_name'=>'required|min:5',
+         'price'=>'required|min:3',
+        'product_description'=>'required|min:7',
+  ]);
+       $product= Product::find($id);
+
+       $product->Name = $request->input('product_name');
+       $product->price = $request->input('price');
+       $product->description = $request->input('product_description');
+
+       $product->save();
+
+       return view('products.edit')->with('status', 'Your product has been updated successfully');
+}
 
     /**
      * Remove the specified resource from storage.
