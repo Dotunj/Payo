@@ -9,10 +9,10 @@
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents"><i class="fa fa-fw fa-wrench"></i>Products</a>
                     <ul class="sidebar-second-level collapse" id="collapseComponents">
                         <li>
-                            <a href="{{route('products.index')}}">All Content</a>
+                            <a href="{{route('products.index')}}">All Products</a>
                         </li>
                         <li>
-                            <a href="{{route('products.create')}}">Upload Content</a>
+                            <a href="{{route('products.create')}}">Add Products</a>
                         </li>
                     </ul>
                 </li>

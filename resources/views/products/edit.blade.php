@@ -7,7 +7,9 @@
  <div class="container-fluid">
  <div class="card mb-3">
                 <!-- START PANEL -->
-                    <form action="{{ route('products.update', $product->id)  }}" method="post"  enctype="multipart/form-data">
+                    <form action="{{ route('products.update', $product->id) }}" method="post">
+                    {{csrf_field()}}
+                    {{method_field('PUT')}}
                 @foreach ($errors->all() as $error)
                 <p class="alert alert-danger">{{ $error }}</p>
                 @endforeach
@@ -16,7 +18,6 @@
                     {{ session('status')}}
                 </div>
                 @endif
-                   {{csrf_field()}}
                        <fieldset>
                     <legend>Add Product</legend>
                     <div class="form-group">

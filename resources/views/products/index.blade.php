@@ -30,11 +30,11 @@
     <td>{{$product->Name}}</td>
     <td>{{$product->description}}</td>
     <td>{{$product->price}}</td>
-    <form action="/products/{{$product->id}}/edit" method="GET">
+    <form action="{{route('products.edit', $product->id)}}" method="GET">
       {{csrf_field()}}
-    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-success btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="fa fa-fw fa-pencil"></span></button></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-success btn-xs"><span class="fa fa-fw fa-pencil"></span></button></p></td>
     </form>
-    <form action="/products/{{$product->id}}" method="POST">
+    <form action="{{route('products.destroy', $product->id)}}" method="POST">
       {{csrf_field()}}
       {{method_field('DELETE')}}
     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" ><span class="fa fa-fw fa-trash"></span></button></p></td>
